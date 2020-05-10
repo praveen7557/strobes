@@ -19,9 +19,25 @@ function Login() {
   const [btnText, setBtnText] = useState("Continue");
   const [error, setError] = useState({});
   const [remember, setRemember] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [pswdError, setPswdError] = useState(false);
 
   const continueClick = () => {
-    if (step === 2) setBtnText("Log in");
+    if (step === 1) {
+      setEmailError(false);
+      if (!validateEmail(email)) {
+        setEmailError(true);
+        return;
+      }
+    }
+    if (step === 2) {
+      setPswdError(false);
+      if (!validatePswd(password)) {
+        setPswdError(true);
+        return;
+      }
+      setBtnText("Log in");
+    }
     if (step === 3) {
       setError({
         visible: true,
@@ -33,6 +49,18 @@ function Login() {
 
   const hideError = () => {
     setError({});
+  };
+
+  const validateEmail = (email) => {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const validatePswd = (pswd) => {
+    if (!pswd || pswd.length < 6) {
+      return false;
+    }
+    return true;
   };
 
   return (
@@ -48,9 +76,10 @@ function Login() {
               {step === 1 ? (
                 <div className="step-container">
                   <FormGroup className="M0">
-                    <TextBox
+                    <TextInput
+                      invalid={emailError}
                       id="email"
-                      invalidText="Invalid error message."
+                      invalidText="Invalid e-mail"
                       labelText="Enter your Strobes ID"
                       placeholder="john.doe@example.com"
                       value={email}
@@ -63,16 +92,23 @@ function Login() {
               ) : step === 2 ? (
                 <div className="step-container">
                   <div className="user-email">
-                    <ArrowLeft16 fill="#0F62FE" />
+                    <ArrowLeft16
+                      className="CP"
+                      fill="#0F62FE"
+                      onClick={() => setStep(1)}
+                    />
                     <label>{email}</label>
                   </div>
                   <FormGroup className="M0">
                     <TextInput
+                      invalid={pswdError}
                       id="password"
                       type="password"
-                      invalidText="Invalid error message."
+                      pattern="{6,}"
+                      invalidText="Password should atleast be 6 characters"
                       placeholder="*******"
                       value={password}
+                      pattern=""
                       onChange={(e) => {
                         setPassword(e.target.value);
                       }}
