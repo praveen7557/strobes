@@ -1,0 +1,77 @@
+.login-container {
+  height: 100%;
+  padding: 80px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h4 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0;
+  }
+
+  .sub-text {
+    margin-top: 4px;
+    line-height: 18px;
+
+    label {
+      color: #0f62fe;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .form-container {
+    margin-top: 60px;
+
+    .email-container {
+      .form-label {
+        line-height: 20px;
+      }
+
+      input {
+        font-size: 14px;
+        border: none;
+      }
+    }
+
+    .user-email {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      label {
+        margin-left: 10px;
+        line-height: 20px;
+      }
+    }
+
+    .submit-icon {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .actions-items {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      align-items: center;
+
+      .forgot {
+        color: #0F62FE;
+        cursor: pointer;
+      }
+    }
+
+    .login-sso {
+      color: #0F62FE;
+      cursor: pointer;
+      margin-top: 36px;
+    }
+
+    .copyright {
+      color: #161616;
+    }
+  }
+}

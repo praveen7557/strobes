@@ -1,0 +1,23 @@
+.error-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(218, 30, 40, 0.3);
+  border-left: 3px solid #DA1E28;
+  width: 100%;
+  height: 48px;
+  align-items: center;
+  padding: 0 16px;
+
+  .left-error {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin-left: 5px;
+    }
+
+    .error-message {
+      font-weight: bold;
+    }
+  }
+}

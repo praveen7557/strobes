@@ -1,0 +1,77 @@
+.layout-container {
+  .grid-container {
+    height: calc(100vh - 48px);
+    display: flex;
+    flex-wrap: wrap;
+
+    .left-grid {
+      width: 65%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, #491d8b, #5143ab, #5a66c9, #6687e5, #78a9ff);
+      padding: 150px 290px 150px 80px;
+      color: #ffffff;
+
+      .main-name {
+        font-family: 'Righteous', cursive;
+        font-size: 32px;
+        line-height: 40px;
+        margin: 0;
+        font-weight: 400;
+      }
+
+      .sub-name {
+        font-size: 28px;
+        line-height: 40px;
+        margin: 0;
+        font-weight: 400;
+        margin-bottom: 36px;
+      }
+
+      .feature-container {
+        margin-bottom: 32px;
+
+        .title {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          line-height: 22px;
+        }
+
+        .info {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+          max-width: 290px;
+        }
+      }
+    }
+
+    .right-grid {
+      height: 100%;
+      width: 35%;
+    }
+  }
+}
+
+@media (max-width:576px) {
+  .layout-container {
+    .grid-container {
+      .left-grid {
+        padding: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width:768px) {
+
+  .layout-container {
+    .grid-container {
+
+      .left-grid,
+      .right-grid {
+        width: 100%;
+      }
+    }
+  }
+}

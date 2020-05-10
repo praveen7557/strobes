@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  background-color: #161616;
+  padding: 0 16px;
+  font-size: 14px;
+
+  .left-header {
+    color: #ffffff;
+  }
+
+  .right-header {
+    display: flex;
+    color: #C6C6C6;
+
+    div {
+      margin-left: 32px;
+    }
+  }
+}
